@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoultryDetect - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background-color: #0d1117; color: #fff; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; background-color: #161b22; border-bottom: 1px solid #30363d;
+    }
+
+    nav a {
+      margin: 0 12px; color: #c9d1d9; text-decoration: none; font-weight: 600; transition: color 0.3s;
+    }
+
+    nav a:hover { color: #58a6ff; }
+
+    .hero {
+      text-align: center; padding: 100px 20px;
+      background: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?fit=crop&w=1400&q=80') no-repeat center/cover;
+      position: relative; color: #fff;
+    }
+
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6); z-index: 0;
+    }
+
+    .hero h1, .hero p, .hero a { position: relative; z-index: 1; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: #58a6ff; }
+    .hero p { font-size: 1.3rem; margin-bottom: 30px; }
+    .hero button {
+      padding: 14px 32px; background: #238636; color: #fff; border: none; border-radius: 8px;
+      font-size: 1rem; cursor: pointer; transition: background 0.3s ease;
+    }
+
+    .hero button:hover { background: #2ea043; }
+
+    .features {
+      display: flex; flex-wrap: wrap; justify-content: center; padding: 60px 20px; background-color: #0d1117;
+    }
+
+    .feature-card {
+      background: #161b22; color: white; margin: 15px; padding: 25px;
+      border-radius: 12px; width: 280px; box-shadow: 0 0 10px rgba(40, 167, 69, 0.2);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .feature-card:hover { transform: scale(1.05); background: #238636; }
+    .feature-card h3 { color: #58a6ff; margin-bottom: 10px; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 60px 40px;
+      background: #0d1117;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      background-color: #161b22;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+    }
+
+    .project-info {
+      padding: 60px 20px; background: #0d1117; text-align: center;
+    }
+
+    .project-info h2 {
+      font-size: 2rem; color: #58a6ff; margin-bottom: 20px;
+    }
+
+    .project-info p {
+      max-width: 800px; margin: auto; font-size: 1.1rem; color: #c9d1d9; margin-bottom: 40px;
+    }
+
+    .scenarios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .hero button { font-size: 0.9rem; padding: 10px 20px; }
+      .gallery { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div><strong style="color:#58a6ff">PoultryDetect</strong></div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/predict">Prediction</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero animate__animated animate__fadeIn">
+    <h1>Welcome to PoultryDetect</h1>
+    <p>Your AI-powered assistant for poultry disease detection and health insights.</p>
+    <a href="/predict"><button>Get Started</button></a>
+  </div>
+
+  <div class="features">
+    <div class="feature-card animate__animated animate__fadeInUp">
+      <h3>Smart Detection</h3>
+      <p>Utilizes deep learning to detect diseases like Coccidiosis, Newcastle, and Salmonella.</p>
+    </div>
+    <div class="feature-card animate__animated animate__fadeInUp">
+      <h3>Instant Results</h3>
+      <p>Simply upload an image to receive fast and accurate predictions.</p>
+    </div>
+    <div class="feature-card animate__animated animate__fadeInUp">
+      <h3>Prevention Insights</h3>
+      <p>Get tailored suggestions to help prevent disease outbreaks on your farm.</p>
+    </div>
+    <div class="feature-card animate__animated animate__fadeInUp">
+      <h3>Farmer First</h3>
+      <p>Designed for simplicity, built to empower poultry farmers and vets alike.</p>
+    </div>
+  </div>
+
+  <div class="gallery animate__animated animate__zoomIn">
+    <img src="{{ url_for('static', filename='image/Transfer_Learning_Based_Classifications.png') }}" alt="Transfer Learning Poultry Disease Classification">
+    <img src="{{ url_for('static', filename='image/Chicks on a farm.png') }}" alt="Chicks on a farm">
+    <img src="{{ url_for('static', filename='image/Poultry_detection_in_action.png') }}" alt="Poultry detection in action">
+    <img src="{{ url_for('static', filename='image/Healthy_poultry_farm.png') }}" alt="Healthy poultry farm">
+    <img src="{{ url_for('static', filename='image/Disease_free_poultry.png') }}" alt="Disease-free poultry">
+  </div>
+
+  <div class="project-info animate__animated animate__fadeInUp">
+    <h2>Transfer Learning-Based Classification of Poultry Diseases</h2>
+    <p>
+      This project aims to classify poultry diseases into Salmonella, New Castle Disease, Coccidiosis, and Healthy using transfer learning.
+      Farmers use a mobile app to input data (symptoms, conditions, images) and get an instant diagnosis with treatment suggestions.
+      The goal: reduce disease impact, improve productivity, and empower rural communities and commercial farms.
+    </p>
+    <div class="scenarios">
+      <div class="feature-card animate__animated animate__fadeInUp">
+        <h3>Outbreak in Rural Community</h3>
+        <p>Farmers detect Coccidiosis early, reducing spread and economic loss with AI diagnosis.</p>
+      </div>
+      <div class="feature-card animate__animated animate__fadeInUp">
+        <h3>Commercial Farm Management</h3>
+        <p>Large farms quickly quarantine birds after New Castle detection, saving costs and reputation.</p>
+      </div>
+      <div class="feature-card animate__animated animate__fadeInUp">
+        <h3>Veterinary Training</h3>
+        <p>Vet students practice modern AI diagnostics, preparing to serve the poultry industry better.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
