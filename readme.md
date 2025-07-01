@@ -1,1 +1,1 @@
-Project Demo Video
+Project  Details
