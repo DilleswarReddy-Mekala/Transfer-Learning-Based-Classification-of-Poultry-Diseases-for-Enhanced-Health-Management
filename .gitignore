@@ -1,0 +1,9 @@
+# Ignore everything by default
+*
+
+# Don't ignore .gitignore
+!.gitignore
+
+# Don't ignore Project Files and its contents
+!Project Files/
+!Project Files/**
